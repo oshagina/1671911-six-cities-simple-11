@@ -28,10 +28,13 @@ function App({ placeCardCount }: AppProps): JSX.Element {
           path = {AppRoute.PropertyNotLogged}
           element = {<PropertyNotLogged />}
         />
-
         <Route
-          path = {AppRoute.Favorites}
-          element = {
+          path = {AppRoute.Login}
+          element = {<Login />}
+        />
+        <Route
+          path={AppRoute.Favorites}
+          element={
             <PrivateRoute
               authorizationStatus = {AuthorizationStatus.NoAuth}
             >
@@ -39,10 +42,7 @@ function App({ placeCardCount }: AppProps): JSX.Element {
             </PrivateRoute>
           }
         />
-        <Route
-          path = {AppRoute.Login}
-          element = {<Login />}
-        />
+
         <Route
           path = "*"
           element = {<NotFoundScreen />}
