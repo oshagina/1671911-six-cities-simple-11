@@ -1,30 +1,34 @@
-import PlaceCard from '../../components/place-card/place-card';
-import Logo from '../../components/logo/logo';
+import OffersList from '../../components/offers-list/offers-list';
+import { OfferForm } from '../../types/offer-form';
 
 type MainPageProps = {
-  placeCardCount: number;
+  placeCount: number;
+  offers: OfferForm[];
 }
 
-function MainPage({ placeCardCount }: MainPageProps): JSX.Element {
-  return(
+function MainPage({ placeCount, offers }: MainPageProps): JSX.Element {
+  return (
     <div className="page page--gray page--main">
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <Logo/>
+              <a className="header__logo-link header__logo-link--active" href="#todo">
+                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
+              </a>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <div className="header__nav-profile">
+                  <a className="header__nav-link header__nav-link--profile" href="#todo">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </div>
+                    <span className="header__favorite-count">3</span>
+                  </a>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-link" href="#">
+                  <a className="header__nav-link" href="#todo">
                     <span className="header__signout">Sign out</span>
                   </a>
                 </li>
@@ -40,32 +44,32 @@ function MainPage({ placeCardCount }: MainPageProps): JSX.Element {
           <section className="locations container">
             <ul className="locations__list tabs__list">
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Paris</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Cologne</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Brussels</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active">
+                <a className="locations__item-link tabs__item tabs__item--active" href="#todo">
                   <span>Amsterdam</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Hamburg</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Dusseldorf</span>
                 </a>
               </li>
@@ -76,11 +80,11 @@ function MainPage({ placeCardCount }: MainPageProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{placeCardCount} places to stay in Amsterdam</b>
-              <form className="places__sorting" action="#" method="get">
-                <span className="places__sorting-caption">Sort  by</span>
+              <b className="places__found">{placeCount} предложений в Амстердаме</b>
+              <form className="places__sorting" action="#todo" method="get">
+                <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
-            Popular
+                    Popular
                   <svg className="places__sorting-arrow" width="7" height="4">
                     <use xlinkHref="#icon-arrow-select"></use>
                   </svg>
@@ -92,14 +96,7 @@ function MainPage({ placeCardCount }: MainPageProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <PlaceCard/>
-                <PlaceCard/>
-                <PlaceCard/>
-                <PlaceCard/>
-                <PlaceCard/>
-                <PlaceCard/>
-              </div>
+              <OffersList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
@@ -110,4 +107,5 @@ function MainPage({ placeCardCount }: MainPageProps): JSX.Element {
     </div>
   );
 }
+
 export default MainPage;
