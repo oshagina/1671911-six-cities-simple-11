@@ -29,7 +29,6 @@ export type City = {
     };
     name: string;
 }
-
 export type Point = {
     latitude: number;
     longitude: number;
