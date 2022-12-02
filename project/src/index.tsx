@@ -13,11 +13,12 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-//строгий режим для реакта
+//строгий режим для реакта, он нужен только на режиме разработки
   <React.StrictMode>
     <App
       placeCount = {Setting.PLACE_CARD_COUNT}
       offers = {someOffers}
+
     />
   </React.StrictMode>,
 );

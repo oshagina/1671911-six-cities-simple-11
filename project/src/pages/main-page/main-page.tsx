@@ -1,5 +1,7 @@
 import OffersList from '../../components/offers-list/offers-list';
 import { OfferForm } from '../../types/offer-form';
+import Map from '../../components/map/map';
+import { someOffers } from '../../mocks/offers';
 
 type MainPageProps = {
   placeCount: number;
@@ -99,7 +101,9 @@ function MainPage({ placeCount, offers }: MainPageProps): JSX.Element {
               <OffersList offers={offers} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map offers = {someOffers} city = {offers[0].city}/>
+              </section>
             </div>
           </div>
         </div>

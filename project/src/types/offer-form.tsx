@@ -1,13 +1,6 @@
 export type OfferForm = {
   bedrooms: number;
-  city: {
-    location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-    };
-    name: string;
-  };
+  city: City;
   description: string;
     goods: [string];
   host: {
@@ -19,11 +12,7 @@ export type OfferForm = {
   id: number;
   images: [string];
   isPremium: boolean;
-  location: {
-  latitude: number;
-  longitude: number;
-  zoom: number;
-  };
+  location: Point;
   maxAdults: number;
   previewImage: string;
   price: number;
@@ -31,5 +20,20 @@ export type OfferForm = {
   title: string;
   type: string;
   };
+
+export type City = {
+    location: {
+    latitude: number;
+    longitude: number;
+    zoom: number;
+    };
+    name: string;
+}
+
+export type Point = {
+    latitude: number;
+    longitude: number;
+    zoom: number;
+};
 
 

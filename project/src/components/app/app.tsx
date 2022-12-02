@@ -24,7 +24,7 @@ function App({ placeCount, offers }: AppProps): JSX.Element {
         />
 
         <Route
-          path={AppRoute.Property}
+          path={'${AppRoute.Property}/:id'}
           element={<Property/>}
         />
         <Route
@@ -51,6 +51,7 @@ function App({ placeCount, offers }: AppProps): JSX.Element {
         />
       </Routes>
     </BrowserRouter>
+
   );
 }
 
